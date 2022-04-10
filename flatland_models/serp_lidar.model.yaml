@@ -103,7 +103,7 @@ plugins:
     origin: [0.0, 0.0, 0.0]
     range: 10
     # angle: {min: -3.14159265359, max: 3.14159265359, increment: 0.05235987755}
-    angle: {min: -3.14159265358, max: 2.35619449019, increment:   0.78539816339} #laser picks points starting at min + 1*increment, no detection in min + 0*increment
+    angle: {min: -2.35619449019, max: 3.14159265359, increment:   0.78539816339} 
     #noise_std_dev: 0.015
     update_rate: 10
     layers: ["static"]
