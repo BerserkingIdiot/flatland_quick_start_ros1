@@ -18,7 +18,8 @@ class CustomRobotController
 };
 
 CustomRobotController::CustomRobotController():
-    scan_topic("static_laser"), //"static_laser" uses the complete lidar scan, "simple_lidar" uses a simplified version
+    //scan_topic("simple_lidar"), //uncomment only one of these lines at a time, depending on which LiDAR you wish to use
+    scan_topic("static_laser"), //"static_laser" uses the complete LiDAR scan, "simple_lidar" uses a simplified version
     twist_topic("cmd_vel")
 {
     scan_sub = nh.subscribe(scan_topic, 1, &CustomRobotController::processLaserScan, this);
