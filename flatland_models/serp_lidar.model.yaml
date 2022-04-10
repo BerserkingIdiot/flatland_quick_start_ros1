@@ -6,7 +6,7 @@ bodies:
     enabled: true
     pose: [0, 0, 0]
     type: dynamic
-    color: [1, 1, 1, 0.75]
+    color: [0, 0, 1, 0.75]
     footprints:
       - type: polygon
         density: 1
@@ -58,7 +58,6 @@ plugins:
   - type: DiffDrive
     name: serp_diff_drive
     body: base_link
-    odom_frame_id: serp_odom
     pub_rate: 10
     twist_sub: cmd_vel
     odom_frame_id: odom
@@ -92,19 +91,19 @@ plugins:
     angle: {min: -3.14159265359, max: 3.14159265359, increment: 0.06981317007}
     noise_std_dev: 0.015
     update_rate: 10
-    layers: ["map"]
+    layers: ["static"]
   
   #simplified LiDAR for tutorial
   - type: Laser
-    name: simplified_lidar
-    frame: simplified_lidar_link
+    name: simple_lidar
+    frame: simple_lidar_link
     topic: simple_lidar
     body: base_link
     broadcast_tf: true
     origin: [0.0, 0.0, 0.0]
     range: 10
     # angle: {min: -3.14159265359, max: 3.14159265359, increment: 0.05235987755}
-    angle: {min: -2.35619449019, max: 2.35619449019, increment:   0.78539816339}
+    angle: {min: -3.14159265358, max: 2.35619449019, increment:   0.78539816339} #laser picks points starting at min + 1*increment, no detection in min + 0*increment
     #noise_std_dev: 0.015
     update_rate: 10
-    layers: ["map"]
+    layers: ["static"]
