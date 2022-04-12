@@ -94,3 +94,5 @@ In this package, there are currently 2 different maps to experiment with, found 
 ```
 roslaunch ros1_flatland_quick_start flatland_rviz.launch world_path:="maze" 
 ```
+
+To learn more about the Flatland simulator, read the [documentation and tutorials](https://flatland-simulator.readthedocs.io/en/latest/)
