@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>ros1_flatland_quick_start</name>
+  <name>flatland_quick_start_ros1</name>
   <version>0.0.0</version>
-  <description>The ros1_flatland_quick_start package</description>
+  <description>The flatland_quick_start_ros1 package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
