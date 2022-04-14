@@ -3,12 +3,12 @@
     <arg name="world_path" default="office_test"/>
 
     <include file="$(find flatland_server)/launch/server.launch">
-        <arg name="world_path" value="$(find ros1_flatland_quick_start)/flatland_worlds/$(arg world_path)/world.yaml"/>
+        <arg name="world_path" value="$(find flatland_quick_start_ros1)/flatland_worlds/$(arg world_path)/world.yaml"/>
         <arg name="use_rviz" value="true"/>
     </include>
 
     <!-- Load map -->
-    <node pkg="map_server" type="map_server" name="map_server" output="screen" args="$(find ros1_flatland_quick_start)/flatland_worlds/$(arg world_path)/map.yaml">
+    <node pkg="map_server" type="map_server" name="map_server" output="screen" args="$(find flatland_quick_start_ros1)/flatland_worlds/$(arg world_path)/map.yaml">
 		<!-- <remap from="/map" to="/$(arg ns)/map"/> -->
         <!--
 		<remap from="/tf" to="/$(arg ns)/tf"/>
@@ -28,8 +28,8 @@
         <param name="default_topic" value="/cmd_vel"/>
     </node>
 
-    <include file="$(find ros1_flatland_quick_start)/launch/rviz.launch">
-        <param name="rviz_config" value="$(find ros1_flatland_quick_start)/flatland_worlds/$(arg world_path)/robot_navigation.rviz"/>
+    <include file="$(find flatland_quick_start_ros1)/launch/rviz.launch">
+        <param name="rviz_config" value="$(find flatland_quick_start_ros1)/flatland_worlds/$(arg world_path)/robot_navigation.rviz"/>
     </include>
 
 </launch>

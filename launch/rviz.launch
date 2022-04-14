@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
       <arg name="error_log" default=""/>
-      <arg name="rviz_config" default="$(find ros1_flatland_quick_start)/rviz/robot_navigation.rviz"/>
+      <arg name="rviz_config" default="$(find flatland_quick_start_ros1)/rviz/robot_navigation.rviz"/>
       <arg name="ns" default=""/>
       <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rviz_config) $(arg error_log)">
         <!--
