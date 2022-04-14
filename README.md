@@ -46,7 +46,7 @@ If all went well, you should see a map of an office and a few models placed arou
 Now that you have ROS and Flatland set up, you can start experimenting with the code from this tutorial. First clone the repository and build it:
 ```
 cd src/
-git clone https://github.com/BerserkingIdiot/ROS1_flatland_quick_start.git
+git clone https://github.com/BerserkingIdiot/flatland_quick_start_ros1.git
 cd ..
 catkin_make
 source devel/setup.bash
