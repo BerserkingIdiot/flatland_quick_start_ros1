@@ -34,6 +34,7 @@ First, clone the flatland repository into the _src_ folder of your workspace. Th
 cd src/
 git clone https://github.com/avidbots/flatland.git
 cd ..
+rosdep install --from-paths src --ignore-src
 catkin_make
 source devel/setup.bash
 roslaunch flatland_server server.launch
