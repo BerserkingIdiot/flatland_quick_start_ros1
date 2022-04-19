@@ -36,6 +36,7 @@ git clone https://github.com/avidbots/flatland.git
 cd ..
 sudo apt-get update
 sudo apt-get install liblua5.1-0-dev
+sudo apt-get install ros-noetic-map-server
 rosdep install --from-paths src --ignore-src
 catkin_make
 source devel/setup.bash
