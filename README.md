@@ -28,12 +28,14 @@ source devel/setup.bash
 
 ### Flatland Setup
 
-First, clone the flatland repository into the _src_ folder of your workspace. Then, from within your workspace, build the package with _catkin\_make_ (and source devel/setup.bash), and launch the default server to test whether everything is working. You can do this process with the following commands:
+First, clone the flatland repository into the _src_ folder of your workspace and install its dependencies (you may need to install LUA separately if you don't have it already). Then, from within your workspace, build the package with _catkin\_make_ (and source devel/setup.bash), and launch the default server to test whether everything is working. You can do this process with the following commands:
 
 ```
 cd src/
 git clone https://github.com/avidbots/flatland.git
 cd ..
+sudo apt-get update
+sudo apt-get install liblua5.1-0-dev
 rosdep install --from-paths src --ignore-src
 catkin_make
 source devel/setup.bash
