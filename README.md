@@ -66,6 +66,10 @@ roslaunch flatland_quick_start_ros1 flatland_rviz.launch
 ```
 Both of these will launch a Flatland simulation, containing a small differential drive robot equipped with a LiDAR, and a few obstacles. Along with it, _rqt\_robot\_steering_, a tool that allows you to control the robot's linear and angular velocity, is also launched. Both visualization tools can be manipulated with the mouse, allowing you to drag, rotate and zoom in.
 
+If all went well, you should see something like this (this is the RViz version, however Flatland's native visualization should look similar):
+
+![Screenshot from 2022-04-20 10-23-27](https://user-images.githubusercontent.com/38168315/164197987-29a0a7ce-2651-4777-bcbb-07eb2cf1137f.png)
+
 ## Write your own code
 
 The simulation in this package provides a small differential drive robot equipped with a LiDAR. The differential drive is controlled through Twist messages, and the LiDAR provides data in the form of LaserScan messages. In the _src/_ folder of this package, you will find some sample code that you can use to help develop your own robot controller.
