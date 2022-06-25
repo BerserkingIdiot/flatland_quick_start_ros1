@@ -39,11 +39,10 @@ Two new folders should have appeared in your workspace, _build/_ and _devel/_. W
 source devel/setup.bash
 ```
 
-**Important Note**: Every time you open a new terminal to run ROS code from within your workspace, you must first source ROS's _setup.bash_ script and your workspace's own _setup.bash_. You can do this by running these commands:
-
+**Important Note**: Every time you open a new terminal to run ROS code from within your workspace, you must first source ROS's _setup.bash_ script and your workspace's own _setup.bash_. The command to source ROS's _setup.bash_ is already being automatically run, if you added it to _~/.bashrc_, as indicated in the _ROS Installation_ section. In order to avoid having to source the setup.bash of the workspace everytime a new terminal is opened, similarly to what was done for sourcing ROS's setup.bash, the source command can be added to the .bashrc file:
 ```
-source /opt/ros/noetic/setup.bash
-source devel/setup.bash
+echo "source ~/ros_workspace/devel/setup.bash" >> ~/.bashrc
+source ~/.bashrc
 ```
 
 ### Flatland Setup
@@ -64,12 +63,6 @@ roslaunch flatland_server server.launch
 ```
 
 If all went well, you should see a map of an office and a few models placed around, one of them moving back and forth on a cycle.
-
-In order to avoid having to source the setup.bash of the workspace everytime a new terminal is opened, similarly to what was done for sourcing ROS's setup.bash, the source command can be added to the .bashrc file:
-```
-echo "source ~/ros_workspace/devel/setup.bash" >> ~/.bashrc
-source ~/.bashrc
-```
 
 ## First Run
 
