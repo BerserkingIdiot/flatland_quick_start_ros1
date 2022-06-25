@@ -65,6 +65,12 @@ roslaunch flatland_server server.launch
 
 If all went well, you should see a map of an office and a few models placed around, one of them moving back and forth on a cycle.
 
+In order to avoid having to source the setup.bash of the workspace everytime a new terminal is opened, similarly to what was done for sourcing ROS's setup.bash, the source command can be added to the .bashrc file:
+```
+echo "source ~/ros_workspace/devel/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+```
+
 ## First Run
 
 Now that you have ROS and Flatland set up, you can start experimenting with the code from this tutorial. First clone the repository and build it:
@@ -73,7 +79,6 @@ cd src/
 git clone https://github.com/BerserkingIdiot/flatland_quick_start_ros1.git
 cd ..
 catkin_make
-source devel/setup.bash
 ```
 You can launch the example Flatland's native visualization, or RViz, both allowing you to visualize the simulation environment and the models.
 Flatland's native visualization adapts to simulation environments automatically, and provides some tools to move, spawn and delete models, and pausing the simulation. To launch this version you can use:
