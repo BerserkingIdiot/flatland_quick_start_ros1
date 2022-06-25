@@ -8,7 +8,20 @@ Note: This guide assumes you are using an Ubuntu 20.04 operating system, and can
 
 Follow the instructions in the official [ROS installation guide](http://wiki.ros.org/noetic/Installation/Ubuntu). It is recommended to at least install the desktop version, as some tools that will be used here are already contained within.
 
-**Important Note**: From this point on, it is assumed that every terminal has sourced the _setup.bash_ script as indicated in section 1.5 of the installation guide. Without this, you will not be able to use ROS or any of its tools.
+In this tutorial it is assumed that your ROS installation is placed in /opt/ros/, under the name noentic (which is the most recent Long Term Support distribution at the time of writing).
+
+From this point on, in each bash terminal where ROS commands are used, the setup.bash script must be sourced (as explained in section 1.5 of the installation guide):
+
+```
+source /opt/ros/noetic/setup.bash
+```
+
+Instead of having to write this command everytime a new terminal is opened, the command can be written onto the .bashrc script, so that it is run automatically when opening a new terminal:
+
+```
+echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+```
 
 ### Workspace Setup
 
