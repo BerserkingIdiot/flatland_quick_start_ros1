@@ -102,7 +102,23 @@ Note: the LiDAR scan data is provided in the form of an array of ranges, each va
 
 Within the _src/_ folder of this package (not to be confused with the workspace's _src/_), you can find a file named _custom\_robot\_controller.cpp_. The path to this .cpp file is _/ros\_workspace/src/flatland\_quick\_start\_ros1/src/custom\_robot\_controller.cpp_.
 
-You can use this code to write your own code, and experiment with robot control. Don't forget to build the package after you modify the code, and to run it you must first make sure to have a simulation running. You can use one of the launch files from the previous section, for example, and then use the following command:
+You can use this code to write your own code, and experiment with robot control. Don't forget to build the package after you modify the code:
+```
+cd ~/ros_workspace/src/flatland_quick_start_ros1/src
+nano custom_robot_controller.cpp
+<edit your code>
+cd ..
+catkin_make
+```
+
+To run the controller you must first make sure to have a simulation running. You can use one of the launch files from the previous section, for example, and then run the controller (with rosrun). For instance,the following commands can be used in two terminals:
+
+In the first terminal (to start the robot and simulator):
+```
+roslaunch flatland_quick_start_ros1 flatland_rviz.launch
+```
+
+In the second terminal (to launch the controller):
 ```
 rosrun flatland_quick_start_ros1 custom_robot_controller
 ```
