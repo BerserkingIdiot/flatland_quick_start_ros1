@@ -8,7 +8,7 @@ Note: This guide assumes you are using an Ubuntu 20.04 operating system, and can
 
 Follow the instructions in the official [ROS installation guide](http://wiki.ros.org/noetic/Installation/Ubuntu). It is recommended to at least install the desktop version, as some tools that will be used here are already contained within.
 
-Note: From this point on, it is assumed that every terminal has sourced the _setup.bash_ script as indicated in section 1.5 of the installation guide. Without this, you will not be able to use ROS or any of its tools.
+**Important Note**: From this point on, it is assumed that every terminal has sourced the _setup.bash_ script as indicated in section 1.5 of the installation guide. Without this, you will not be able to use ROS or any of its tools.
 
 ### Workspace Setup
 
@@ -20,9 +20,16 @@ cd ~/ros_workspace/
 catkin_make
 ```
 
-Two new folders should have appeared in your workspace, _build/_ and _devel/_. Within the _devel/_ folder, you'll find multiple shell scripts. One of these, _devel/setup.bash_ will be used to allow you to run code from packages within your workspace. Every time you open a new terminal to run ROS code from within your workspace and after you run _catkin\_make_, don't forget to execute the following command:
+Two new folders should have appeared in your workspace, _build/_ and _devel/_. Within the _devel/_ folder, you'll find multiple shell scripts. One of these, _devel/setup.bash_ will be used to allow you to run code from packages within your workspace. After you run _catkin\_make_, don't forget to execute the following command:
 
 ```
+source devel/setup.bash
+```
+
+**Important Note**: Every time you open a new terminal to run ROS code from within your workspace, you must first source ROS's _setup.bash_ script and your workspace's own _setup.bash_. You can do this by running these commands:
+
+```
+source /opt/ros/noetic/setup.bash
 source devel/setup.bash
 ```
 
@@ -70,11 +77,15 @@ If all went well, you should see something like this (this is the RViz version, 
 
 ![Screenshot from 2022-04-20 10-23-27](https://user-images.githubusercontent.com/38168315/164197987-29a0a7ce-2651-4777-bcbb-07eb2cf1137f.png)
 
+You can zoom in the visualization window with the scroll wheel and move it around by using alt + left click and dragging. The front of the robot starts pointed towards the right and the robot looks like this:
+
+![detailed_robot](https://user-images.githubusercontent.com/38168315/175785428-7792a770-7a78-4777-91b3-50555e26e98a.png)
+
 ## Write your own code
 
 The simulation in this package provides a small differential drive robot equipped with a LiDAR. The differential drive is controlled through Twist messages, and the LiDAR provides data in the form of LaserScan messages. In the _src/_ folder of this package, you will find some sample code that you can use to help develop your own robot controller.
 
-Note: the LiDAR scan data is provided in the form of an array of ranges, each value corresponding to the nearest detected obstacle by that ray, or _nan_ if nothing is found. The rays are defined counter-clockwise, starting from the rear of the robot, meaning that in the first half of the array are the values for obstacles on the right and in the second half are values for obstacles on the right, with the middle of the array corresponding to the front of the robot. Playing around with the RViz visualization may help understanding how these work.
+Note: the LiDAR scan data is provided in the form of an array of ranges, each value corresponding to the nearest detected obstacle by that ray, or _nan_ if nothing is found. The rays are defined counter-clockwise, starting from the rear of the robot, meaning that in the first half of the array are the values for obstacles on the right and in the second half are values for obstacles on the left, with the middle of the array corresponding to the front of the robot. Playing around with the RViz visualization may help understanding how these work.
 
 ### C++
 
