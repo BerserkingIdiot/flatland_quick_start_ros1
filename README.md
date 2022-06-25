@@ -102,7 +102,9 @@ Note: the LiDAR scan data is provided in the form of an array of ranges, each va
 
 ### C++
 
-Within the _src/_ folder of this package (not to be confused with the workspace's _src/_), you can find a file named _custom_robot_controller.cpp. You can use this code to write your own code, and experiment with robot control. Don't forget to build the package after you modify the code, and to run it you must first make sure to have a simulation running. You can use one of the launch files from the previous section, for example, and then use the following command:
+Within the _src/_ folder of this package (not to be confused with the workspace's _src/_), you can find a file named _custom_robot_controller.cpp. The path to this .cpp file is /ros_workspace/src/flatland_quick_start_ros1/src.
+
+You can use this code to write your own code, and experiment with robot control. Don't forget to build the package after you modify the code, and to run it you must first make sure to have a simulation running. You can use one of the launch files from the previous section, for example, and then use the following command:
 ```
 rosrun flatland_quick_start_ros1 custom_robot_controller
 ```
