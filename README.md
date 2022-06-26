@@ -121,7 +121,7 @@ You can use this code to write your own code, and experiment with robot control.
 cd ~/ros_workspace/src/flatland_quick_start_ros1/src
 nano custom_robot_controller.cpp
 <edit your code>
-cd ..
+cd ~/ros_workspace/
 catkin_make
 ```
 
@@ -141,7 +141,18 @@ rosrun flatland_quick_start_ros1 custom_robot_controller
 
 Within the _src/_ folder of this package (not to be confused with the workspace's _src/_), you can find a file named _custom_robot_controller.py_. The path to this .py file is _/ros\_workspace/src/flatland\_quick\_start\_ros1/src/custom\_robot\_controller.py_.
 
-You can use this code to write your own code, and experiment with robot control. Unlike the C++ version, you don't have to build the package every time you modify the code, and to run it you must first make sure to have a simulation running. You can use one of the launch files from the previous section, for example, and then use the following command:
+You can use this code to write your own code, and experiment with robot control. Unlike the C++ version, you don't have to build the package every time you modify the code, but before you run it you must make the script executable. You can do this by running this command from your workspace:
+```
+chmod +x src/flatland_quick_start_ros1/src/custom_robot_controller.py
+```
+To run the controller you must first make sure to have a simulation running. You can use one of the launch files from the previous section, for example, and then run the controller (with rosrun). For instance,the following commands can be used in two terminals:
+
+In the first terminal (to start the robot and simulator):
+```
+roslaunch flatland_quick_start_ros1 flatland_rviz.launch
+```
+
+In the second terminal (to launch the controller):
 ```
 rosrun flatland_quick_start_ros1 custom_robot_controller.py
 ```
