@@ -1,8 +1,10 @@
+#!/usr/bin/env python
 import rospy
 from sensor_msgs.msg import LaserScan
 from geometry_msgs.msg import Twist
+import math
 
-class csvExporterNode():
+class customRobotControllerNode():
 
 
     def process_LaserScan(self,data):
@@ -36,18 +38,18 @@ class csvExporterNode():
         ########################################
         ## Example 3: A robot that moves in circles, and turns around itself when it finds an obstacle in front of it
         ## Find if the laser in front of the robot is detecting an obstacle too close to them
-        #num_lasers = lidar_scan_msg.ranges.size()
-        #max_distance = 1.00 # maximum allowed distance for an obstacle in one of three sensor readings before the robot starts spining around itself
-        #middle_laser_range = lidar_scan_msg.ranges[num_lasers / 2]
-        #if( not (middle_laser_range >= lidar_scan_msg.range_min and middle_laser_range <= lidar_scan_msg.range_max) # if the distance reading is invalid or...
-        #        or middle_laser_range < max_distance): # ... the distance is below the maximum allowed distance
-        #   # ROTATE
-        #    twist_msg.linear.x = 0
-        #    twist_msg.angular.z = -2
-        #else:
-        #   # MOVE FORWARD
-        #    twist_msg.linear.x = 2
-        #    twist_msg.angular.z = -2
+        num_lasers = len(data.ranges)
+        max_distance = 1.00 # maximum allowed distance for an obstacle in one of three sensor readings before the robot starts spining around itself
+        middle_laser_range = data.ranges[math.floor(num_lasers / 2 + 0.5)]
+        if( not (middle_laser_range >= data.range_min and middle_laser_range <= data.range_max) # if the distance reading is invalid or...
+                or middle_laser_range < max_distance): # ... the distance is below the maximum allowed distance
+           # ROTATE
+            twist_msg.linear.x = 0
+            twist_msg.angular.z = -2
+        else:
+           # MOVE FORWARD
+            twist_msg.linear.x = 2
+            twist_msg.angular.z = -2
         ########################################
 
         self.twist_pub.publish(twist_msg)
@@ -77,7 +79,7 @@ class csvExporterNode():
 
 if __name__ == '__main__':
     try:
-        csvExpNode = csvExporterNode()
+        controller = customRobotControllerNode()
         
         rospy.spin()        
 
