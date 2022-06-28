@@ -88,7 +88,7 @@ If all went well, you should see something like this (this is the RViz version, 
 
 ![Screenshot from 2022-04-20 10-23-27](https://user-images.githubusercontent.com/38168315/164197987-29a0a7ce-2651-4777-bcbb-07eb2cf1137f.png)
 
-You can zoom in the visualization window with the scroll wheel and move it around by using alt + left click and dragging. The front of the robot starts pointed towards the right and the robot looks like this:
+You can zoom in the visualization window with the scroll wheel and move it around by using SHIFT + left click and dragging. The front of the robot starts pointed towards the right and the robot looks like this:
 
 ![detailed_robot](https://user-images.githubusercontent.com/38168315/175785428-7792a770-7a78-4777-91b3-50555e26e98a.png)
 
